@@ -4,8 +4,8 @@ class Restaurant < ActiveRecord::Base
 
   attr_accessible :name, :address, :coordinates, :image
 
-  def self.find_with_meals_of_the_week(id)
-    includes({menu_items: :meal}).find(id)
+  def self.with_meals_of_the_week
+    includes({menu_items: :meal})
     # .where("menu_items.date > ? AND menu_items.date < ?", Time.now.beginning_of_week, Time.now.end_of_week) ... why doesn't this work ...
   end
 end
