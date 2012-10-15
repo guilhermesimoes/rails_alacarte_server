@@ -6,6 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
         super
       }
       format.json {
+        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        puts params
         build_resource
         if resource.save
           response = resource

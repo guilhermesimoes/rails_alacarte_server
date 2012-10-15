@@ -6,6 +6,8 @@ class SessionsController < Devise::SessionsController
         super
       }
       format.json {
+        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        puts params
         build_resource
         resource = User.find_for_database_authentication(email: params[:user][:email])
         return invalid_login_attempt unless resource
@@ -28,6 +30,8 @@ class SessionsController < Devise::SessionsController
         super
       }
       format.json {
+        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        puts params
         # signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
         @user = User.find_by_authentication_token(params[:user][:auth_token])
         @user.reset_authentication_token!
