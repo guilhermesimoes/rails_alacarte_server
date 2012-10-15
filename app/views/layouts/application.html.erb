@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
-  <title>RailsAlacarteServer</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta charset='utf-8'>
+
+  <title>À la carte</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <h1><%= link_to 'À la carte', root_path %></h1>
+</header>
 
-<%= yield %>
+<div class='content'>
+  <%= yield %>
+</div>
 
+<%= javascript_include_tag 'application' %>
 </body>
 </html>

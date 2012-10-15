@@ -1,24 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Address:</b>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <b>Coordinates:</b>
-  <%= @restaurant.coordinates %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @restaurant.name %>
-</p>
-
-<h1>Listing menu items</h1>
+<h1>Listing Menu items</h1>
 
 <table>
   <tr>
+    <th>Restaurant</th>
+    <th>Meal</th>
     <th>Date</th>
     <th>Max reservations</th>
     <th>Current reservations</th>
@@ -27,8 +12,10 @@
     <th></th>
   </tr>
 
-<% @restaurant.menu_items.each do |menu_item| %>
+<% @menu_items.each do |menu_item| %>
   <tr>
+    <td><%= menu_item.restaurant.name %></td>
+    <td><%= menu_item.meal.name %></td>
     <td><%= menu_item.date %></td>
     <td><%= menu_item.max_reservations %></td>
     <td><%= menu_item.cur_reservations %></td>
@@ -39,6 +26,6 @@
 <% end %>
 </table>
 
+<br />
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Index', restaurants_path %>
+<%= link_to 'New Menu item', new_menu_item_path %>

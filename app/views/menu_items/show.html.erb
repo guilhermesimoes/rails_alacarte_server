@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Restaurant:</b>
+  <%= link_to @menu_item.restaurant.name, restaurant_path(@menu_item.restaurant) %>
+</p>
+
+<p>
+  <b>Meal:</b>
+  <%= link_to @menu_item.meal.name, meal_path(@menu_item.meal) %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @menu_item.date %>
+</p>
+
+<p>
+  <b>Max reservations:</b>
+  <%= @menu_item.max_reservations %>
+</p>
+
+<p>
+  <b>Cur reservations:</b>
+  <%= @menu_item.cur_reservations %>
+</p>
+
+
+<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
+<%= link_to 'Index', menu_items_path %>

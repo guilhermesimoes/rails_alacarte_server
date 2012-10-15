@@ -1,0 +1,37 @@
+<%= form_for(@menu_item) do |f| %>
+  <% if @menu_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+      <ul>
+      <% @menu_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :restaurant_id %><br />
+    <%= f.collection_select(:restaurant_id, @restaurants, :id, :name, {:prompt => 'Select one'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :meal_id %><br />
+    <%= f.collection_select(:meal_id, @meals, :id, :name, {:prompt => 'Select one'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :max_reservations %><br />
+    <%= f.number_field :max_reservations %>
+  </div>
+  <div class="field">
+    <%= f.label :cur_reservations %><br />
+    <%= f.number_field :cur_reservations %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

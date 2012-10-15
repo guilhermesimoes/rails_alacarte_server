@@ -11,12 +11,14 @@ User.create({email: 'bob@mail.com', password: 'bob1234', password_confirmation: 
 
 Restaurant.create({name: 'Cantina do Pólo II', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: "40°11\'10.68\"N 8°24\'51.16\"W" })
 
-p = Restaurant.create({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: "40°11\'12.15\"N 8°24\'58.08\"W" })
+r = Restaurant.create({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: "40°11\'12.15\"N 8°24\'58.08\"W" })
 
-m = p.menus.create({date: Time.now})
+m = Meal.create({name: 'Sandes de salsicha', price: 4.20})
 
-m.meals.create({name: 'Sandes de salsicha', price: 4.20, max_reservations: 5})
+MenuItem.create({date: Time.now, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
 
-m.meals.create({name: 'Sandes de frango', price: 4.20, max_reservations: 100})
+m = Meal.create({name: 'Sandes de frango', price: 4.20})
+
+MenuItem.create({date: Time.now, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
 
 puts 'Seeded'

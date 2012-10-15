@@ -1,0 +1,19 @@
+<div class="field">
+  <%= f.label :restaurant_id %><br />
+  <%= f.collection_select(:restaurant_id, @restaurants, :id, :name, {:prompt => 'Select one'}) %>
+</div>
+
+<div class="field">
+  <%= f.label :date %><br />
+  <%= f.date_select :date %>
+</div>
+
+<div class="field">
+  <%= f.label :max_reservations, 'Max reservations' %><br />
+  <%= f.text_field :max_reservations %>
+</div>
+
+<div class="field">
+  <%= f.label :cur_reservations, 'Current reservations' %><br />
+  <%= f.text_field :cur_reservations %>
+</div>

@@ -1,6 +1,8 @@
 class Meal < ActiveRecord::Base
-  belongs_to :menu
-  has_many :reservations, dependent: :destroy
+  has_many :menu_items, dependent: :destroy
+  has_many :restaurants, through: :menu_items
 
-  attr_accessible :menu_id, :name, :price, :image, :cur_reservations, :max_reservations
+  attr_accessible :restaurant_ids, :name, :price, :image, :menu_items_attributes
+
+  accepts_nested_attributes_for :menu_items
 end

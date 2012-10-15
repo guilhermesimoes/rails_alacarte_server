@@ -2,9 +2,9 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Address</th>
     <th>Coordinates</th>
-    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @restaurants.each do |restaurant| %>
   <tr>
+    <td><%= restaurant.name %></td>
     <td><%= restaurant.address %></td>
     <td><%= restaurant.coordinates %></td>
-    <td><%= restaurant.name %></td>
     <td><%= link_to 'Show', restaurant %></td>
     <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
     <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>

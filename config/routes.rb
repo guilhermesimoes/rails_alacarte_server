@@ -5,9 +5,13 @@ RailsAlacarteServer::Application.routes.draw do
   resources :reservations
   resources :restaurants
   resources :meals
-  resources :menus
+  resources :menu_items
 
-  root :to => 'restaurants#index'
+  ['home'].each do |p|
+    get "/#{p}", :controller => 'pages', :action => p
+  end
+
+  root :to => 'pages#home'
 
   # match '*uri' => redirect('/')
 end

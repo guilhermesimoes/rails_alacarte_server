@@ -1,0 +1,23 @@
+body {
+  background-image: url('bg.png');
+  background-attachment: fixed;
+  font-size: 16px;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  color: #444444;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.content {
+  padding: 20px 0 0 50px;
+}
+
+a {
+  color: #444444;
+}

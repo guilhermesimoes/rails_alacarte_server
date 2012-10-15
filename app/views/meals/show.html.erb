@@ -11,20 +11,10 @@
 </p>
 
 <p>
-  <b>Max reservations:</b>
-  <%= @meal.max_reservations %>
-</p>
-
-<p>
-  <b>Cur reservations:</b>
-  <%= @meal.cur_reservations %>
-</p>
-
-<p>
   <b>Image:</b>
   <%= @meal.image %>
 </p>
 
 
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+<%= link_to 'Index', meals_path %>

@@ -18,14 +18,14 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
-    @menus = Menu.all
-    Menu.all_this_week
+    @meal.menu_items.build
+    @restaurants = Restaurant.all
   end
 
   # GET /meals/1/edit
   def edit
     @meal = Meal.find(params[:id])
-    Menu.all_this_week
+    @restaurants = Restaurant.all
   end
 
   # POST /meals
