@@ -11,15 +11,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014133416) do
+ActiveRecord::Schema.define(:version => 20121015142016) do
+
+  create_table "meals", :force => true do |t|
+    t.integer  "menu_id",                         :null => false
+    t.string   "name",                            :null => false
+    t.float    "price",                           :null => false
+    t.string   "image"
+    t.integer  "max_reservations"
+    t.integer  "cur_reservations", :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "meals", ["menu_id"], :name => "index_meals_on_menu_id"
+
+  create_table "menus", :force => true do |t|
+    t.integer  "restaurant_id", :null => false
+    t.date     "date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "menus", ["restaurant_id"], :name => "index_menus_on_restaurant_id"
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "meal_id",    :null => false
+    t.datetime "time_slot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reservations", ["meal_id"], :name => "index_reservations_on_meal_id"
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "restaurants", :force => true do |t|
     t.string   "name",        :null => false
     t.string   "address"
     t.string   "coordinates"
+    t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "restaurants", ["name"], :name => "index_restaurants_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "telephone"

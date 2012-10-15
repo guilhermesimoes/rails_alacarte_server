@@ -1,3 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  attr_accessible :address, :coordinates, :name
+  has_many :menus, dependent: :destroy
+
+  attr_accessible :name, :address, :coordinates, :image
 end

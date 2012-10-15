@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-  before_filter :authenticate_user!, only: [:index]
   respond_to :html, :json
 
   # GET /restaurants

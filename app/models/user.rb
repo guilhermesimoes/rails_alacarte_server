@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :reservations, dependent: :destroy
+
   # Include devise modules:
   devise :token_authenticatable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 

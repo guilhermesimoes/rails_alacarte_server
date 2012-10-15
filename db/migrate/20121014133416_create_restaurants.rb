@@ -4,12 +4,17 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :name, :null => false
       t.string :address
       t.string :coordinates
+      t.string :image
 
       t.timestamps
     end
+
+    add_index :restaurants, :name
   end
 
   def self.down
     drop_table :restaurants
+
+    remove_index :restaurants, :name
   end
 end
