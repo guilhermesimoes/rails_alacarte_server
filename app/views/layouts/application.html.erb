@@ -11,6 +11,16 @@
 <body>
 <header>
   <h1><%= link_to 'À la carte', root_path %></h1>
+  <nav class='user'>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'inline-menu' %></li>
+      <% else %>
+        <li><%= link_to 'Create Account', new_user_registration_path %></li>
+        <li><%= link_to 'Log in', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
 </header>
 
 <div class='content'>

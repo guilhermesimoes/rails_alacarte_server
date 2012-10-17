@@ -14,6 +14,22 @@ header a {
   text-decoration: none;
 }
 
+nav.user {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 15px;
+}
+
+nav.user ul {
+  list-style-type: none;
+}
+
+nav.user li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
 .content {
   padding: 20px 0 0 50px;
 }
