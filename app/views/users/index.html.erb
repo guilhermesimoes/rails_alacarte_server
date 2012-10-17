@@ -2,16 +2,24 @@
 
 <table>
   <tr>
+    <th>Email</th>
     <th>Name</th>
     <th>Telephone</th>
+    <th>Credits</th>
+    <th>Auth token</th>
+    <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.email %></td>
     <td><%= user.name %></td>
     <td><%= user.telephone %></td>
+    <td><%= user.credits %></td>
+    <td><%= user.authentication_token %></td>
     <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
