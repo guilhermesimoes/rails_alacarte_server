@@ -7,6 +7,9 @@ RailsAlacarteServer::Application.routes.draw do
   resources :meals
   resources :menu_items
 
+  match '/menu_items/:id/menus_by_restaurants', :controller => 'menu_items', :action => 'menus_by_restaurants'
+
+
   ['home'].each do |p|
     get "/#{p}", :controller => 'pages', :action => p
   end
