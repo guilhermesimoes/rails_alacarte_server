@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20121015183529) do
     t.string   "address"
     t.string   "coordinates"
     t.string   "image"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
