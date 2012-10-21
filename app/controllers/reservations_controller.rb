@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = current_user.reservations.new
+    @menu_items = MenuItem.of_the_week
   end
 
   # GET /reservations/1/edit

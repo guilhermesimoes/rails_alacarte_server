@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :menu_item_id %><br />
+    <%= f.collection_select(:menu_item_id, @menu_items, :id, :collection_name, {:prompt => 'Select one'}) %>
+  </div>
+  <div class="field">
     <%= f.label :time_slot %><br />
     <%= f.datetime_select :time_slot %>
   </div>
