@@ -34,6 +34,9 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
+        # Send an SMS informing the user his reservation was successful
+        # UserMailer.reservation_sms(current_user).deliver if current_user.telephone?
+
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else

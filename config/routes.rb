@@ -10,7 +10,7 @@ RailsAlacarteServer::Application.routes.draw do
   match '/menu_items/:id/menus_by_restaurants', :controller => 'menu_items', :action => 'menus_by_restaurants'
 
 
-  ['home'].each do |p|
+  ['home', 'sms_test'].each do |p|
     get "/#{p}", :controller => 'pages', :action => p
   end
 
