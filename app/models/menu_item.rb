@@ -8,7 +8,11 @@ class MenuItem < ActiveRecord::Base
   attr_accessible :restaurant_id, :meal_id, :date, :cur_reservations, :max_reservations
 
   def self.of_the_week
-    where("date >= ? AND date <= ?", Time.now.beginning_of_week, Time.now.end_of_week)
+    where("date >= ? AND date <= ?", Date.today.beginning_of_week, Date.today.end_of_week)
+  end
+
+  def self.of_the_future
+    where('date >= ?', Date.today)
   end
 
   def collection_name

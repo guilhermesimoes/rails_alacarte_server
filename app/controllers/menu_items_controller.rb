@@ -5,16 +5,14 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/:id/menus_by_restaurants     :id -> restaurant_id
   # GET /menu_items/:id/menus_by_restaurants.json
   def menus_by_restaurants
-    @menu_items = MenuItem.where(:restaurant_id => params[:id])
-    @menu_items = @menu_items.where('date >= ?',Time.now)
-
+    @menu_items = MenuItem.of_the_future.where(:restaurant_id => params[:id])
     respond_with(@menu_items)
   end
 
   # GET /menu_items
   # GET /menu_items.json
   def index
-    @menu_items = MenuItem.all
+    @menu_items = MenuItem.of_the_future
     respond_with(@menu_items)
   end
 

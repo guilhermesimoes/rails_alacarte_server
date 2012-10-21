@@ -78,10 +78,10 @@ r = Restaurant.create({name: 'Bar de Informática', address: 'R. Miguel Bombarda
 
 m = Meal.create({name: 'Sandes de salsicha', price: 4.20})
 
-MenuItem.create({date: Time.now, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
+MenuItem.create({date: Date.today, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
 
 m = Meal.create({name: 'Sandes de frango', price: 4.20})
 
-MenuItem.create({date: Time.now, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
+MenuItem.create({date: Date.today, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
 
 puts 'Seeded'
