@@ -1,2 +1,2 @@
 collection @restaurants
-attributes :id, :name, :image, :description
+attributes :id, :name, :image, :coordinates, :description
