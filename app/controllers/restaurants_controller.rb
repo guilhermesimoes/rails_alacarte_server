@@ -72,7 +72,11 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/:id/menus
   # GET /restaurants/:id/menus.json
   def menu_items
-    @menu_items = Restaurant.find(params[:id]).menu_items.of_the_future
-    respond_with(@menu_items)
+    @menu_items = Restaurant.find(params[:id]).menu_items
+    respond_with(@menu_items) do |format|
+      format.json {
+        render "menu_items/index"
+      }
+    end
   end
 end
