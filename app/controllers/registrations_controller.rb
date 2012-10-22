@@ -40,7 +40,7 @@ class RegistrationsController < Devise::RegistrationsController
         end
       }
       format.json {
-        self.resource = resource_class.to_adapter.find_by_authentication_token(params[:auth_token])
+        self.resource = resource_class.find_by_authentication_token(params[:auth_token])
         if resource.update_without_password(params[resource_name])
           head :no_content
         else
