@@ -6,7 +6,7 @@
 
   <title>À la carte</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,6 +15,7 @@
   <nav class='user'>
     <ul>
       <% if user_signed_in? %>
+        <li><%= link_to current_user.name, current_user %></li>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'inline-menu' %></li>
       <% else %>
         <li><%= link_to 'Create Account', new_user_registration_path %></li>

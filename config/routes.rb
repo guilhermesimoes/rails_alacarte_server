@@ -7,7 +7,10 @@ RailsAlacarteServer::Application.routes.draw do
   resources :meals
   resources :menu_items
 
-  match '/menu_items/:id/menus_by_restaurants', :controller => 'menu_items', :action => 'menus_by_restaurants'
+  match '/menu_items/:id/menus_by_restaurants' => 'menu_items#menus_by_restaurants'
+
+  get '/change_password' => 'passwords#edit', :as => :edit_user_password
+  put '/update_password' => 'passwords#update', :as => :update_user_password
 
 
   ['home', 'sms_test'].each do |p|

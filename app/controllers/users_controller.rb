@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @self = current_user.try(:id) == @user.id
     respond_with(@user)
   end
 

@@ -1,0 +1,25 @@
+<h1>Edit user</h1>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone %><br />
+    <%= f.phone_field :telephone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+    <%= link_to "Cancel", @user %>
+  </div>
+<% end %>
