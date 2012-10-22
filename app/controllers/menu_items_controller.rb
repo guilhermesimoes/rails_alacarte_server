@@ -1,14 +1,6 @@
 class MenuItemsController < ApplicationController
   respond_to :html, :json
 
-
-  # GET /menu_items/:id/menus_by_restaurants     :id -> restaurant_id
-  # GET /menu_items/:id/menus_by_restaurants.json
-  def menus_by_restaurants
-    @menu_items = MenuItem.of_the_future.where(:restaurant_id => params[:id])
-    respond_with(@menu_items)
-  end
-
   # GET /menu_items
   # GET /menu_items.json
   def index
