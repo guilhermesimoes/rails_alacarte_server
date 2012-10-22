@@ -15,7 +15,7 @@
   <nav class='user'>
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, current_user %></li>
+        <li><%= link_to current_user.name, user_path(current_user.authentication_token) %></li>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'inline-menu' %></li>
       <% else %>
         <li><%= link_to 'Create Account', new_user_registration_path %></li>
