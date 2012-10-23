@@ -20,10 +20,12 @@
   <%= @restaurant.image %>
 </p>
 
-<h2>Listing menu items</h2>
+<h2>Menu</h2>
 
 <table>
   <tr>
+    <th>Meal</th>
+    <th>Price</th>
     <th>Date</th>
     <th>Max reservations</th>
     <th>Current reservations</th>
@@ -34,6 +36,8 @@
 
 <% @restaurant.menu_items.each do |menu_item| %>
   <tr>
+    <td><%= menu_item.meal.name %></td>
+    <td><%= menu_item.meal.price %></td>
     <td><%= menu_item.date %></td>
     <td><%= menu_item.max_reservations %></td>
     <td><%= menu_item.cur_reservations %></td>

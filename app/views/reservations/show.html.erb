@@ -5,6 +5,21 @@
   <%= @reservation.time_slot %>
 </p>
 
+<p>
+  <b>Name:</b>
+  <%= link_to @reservation.meal.name, menu_item_path(@reservation.menu_item_id) %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @reservation.meal.price %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @reservation.meal.image %>
+</p>
+
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Index', reservations_path %>
