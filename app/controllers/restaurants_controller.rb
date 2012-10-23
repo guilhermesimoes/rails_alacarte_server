@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant = Restaurant.with_meals_of_the_week.find(params[:id])
+    @restaurant = Restaurant.with_next_seven_meals.find(params[:id])
     respond_with(@restaurant)
   end
 
@@ -72,7 +72,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/:id/menu_items
   # GET /restaurants/:id/menu_items.json
   def menu_items
-    @menu_items = Restaurant.find(params[:id]).menu_items
+    @menu_items = Restaurant.find(params[:id]).menu_items.of_the_next_seven_days
     render "menu_items/index"
   end
 end
