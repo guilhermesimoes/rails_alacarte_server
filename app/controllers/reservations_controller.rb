@@ -7,13 +7,13 @@ class ReservationsController < ApplicationController
   def index
     respond_to do |format|
       format.html {
-        user = current_user
+        @user = current_user
       }
       format.json {
-        user = User.find_by_authentication_token(params[:auth_token])
+        @user = User.find_by_authentication_token(params[:auth_token])
       }
     end
-    @reservations = user.reservations
+    @reservations = @user.reservations
     respond_with(@reservations)
   end
 
@@ -22,13 +22,13 @@ class ReservationsController < ApplicationController
   def show
     respond_to do |format|
       format.html {
-        user = current_user
+        @user = current_user
       }
       format.json {
-        user = User.find_by_authentication_token(params[:auth_token])
+        @user = User.find_by_authentication_token(params[:auth_token])
       }
     end
-    @reservation = user.reservations.find(params[:id])
+    @reservation = @user.reservations.find(params[:id])
     respond_with(@reservation)
   end
 
@@ -48,9 +48,9 @@ class ReservationsController < ApplicationController
   def create
     respond_to do |format|
       format.html {
-        user = current_user
+        @user = current_user
 
-        @reservation = user.reservations.new(params[:reservation])
+        @reservation = @user.reservations.new(params[:reservation])
 
         if @reservation.save
           redirect_to @reservation, notice: 'Reservation was successfully created.'
@@ -59,14 +59,14 @@ class ReservationsController < ApplicationController
         end
       }
       format.json {
-        user = User.find_by_authentication_token(params[:auth_token])
+        @user = User.find_by_authentication_token(params[:auth_token])
 
-        @reservation = user.reservations.new(params[:reservation])
+        @reservation = @user.reservations.new(params[:reservation])
 
         if @reservation.save
 
           # Send an SMS informing the user his reservation was successful
-          # UserMailer.reservation_sms(user).deliver if user.telephone?
+          # UserMailer.reservation_sms(@user).deliver if @user.telephone?
 
           render json: @reservation, status: :created, location: @reservation
         else
@@ -81,9 +81,9 @@ class ReservationsController < ApplicationController
   def update
     respond_to do |format|
       format.html {
-        user = current_user
+        @user = current_user
 
-        @reservation = user.reservations.find(params[:id])
+        @reservation = @user.reservations.find(params[:id])
 
         if @reservation.update_attributes(params[:reservation])
           redirect_to @reservation, notice: 'Reservation was successfully updated.'
@@ -92,9 +92,9 @@ class ReservationsController < ApplicationController
         end
       }
       format.json {
-        user = User.find_by_authentication_token(params[:auth_token])
+        @user = User.find_by_authentication_token(params[:auth_token])
 
-        @reservation = user.reservations.find(params[:id])
+        @reservation = @user.reservations.find(params[:id])
 
         if @reservation.update_attributes(params[:reservation])
           head :no_content
@@ -110,17 +110,17 @@ class ReservationsController < ApplicationController
   def destroy
     respond_to do |format|
       format.html {
-        user = current_user
+        @user = current_user
 
-        @reservation = user.reservations.find(params[:id])
+        @reservation = @user.reservations.find(params[:id])
 
         @reservation.destroy
         redirect_to reservations_url
       }
       format.json {
-        user = User.find_by_authentication_token(params[:auth_token])
+        @user = User.find_by_authentication_token(params[:auth_token])
 
-        @reservation = user.reservations.find(params[:id])
+        @reservation = @user.reservations.find(params[:id])
 
         @reservation.destroy
         head :no_content
