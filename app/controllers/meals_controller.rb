@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :xml
 
   # GET /meals
   # GET /meals.json

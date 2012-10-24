@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :xml
   before_filter :authenticate_user!
 
   # GET /reservations
