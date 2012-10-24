@@ -11,7 +11,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant = Restaurant.with_next_seven_meals.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
+    @menu_items = @restaurant.menu_items.of_the_next_seven_days
     respond_with(@restaurant)
   end
 
