@@ -7,7 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create([ {    name: 'Restaurante Luzio Vaz',
+Restaurant.create!([ {   name: 'Restaurante Luzio Vaz',
                          coordinates: '40.2202,-8.417983',
                          image: "http://www.uc.pt/sasuc/imagens/Cantina_Polo-III_1_1.jpg"
                     },
@@ -70,18 +70,22 @@ Restaurant.create([ {    name: 'Restaurante Luzio Vaz',
                     }
                ])
 
-User.create({email: 'z@z.com', password: 'zzzzzzz', password_confirmation: 'zzzzzzz', name: 'bob', telephone: '12345' })
+z = User.create!({email: 'z@z.com', password: 'zzzzzzz', password_confirmation: 'zzzzzzz', name: 'bob', telephone: '12345' })
 
-User.create({email: 'bob@mail.com', password: 'bob1234', password_confirmation: 'bob1234', name: 'bob', telephone: '12345' })
+b = User.create!({id: '1', email: 'bob@mail.com', password: 'bob1234', password_confirmation: 'bob1234', name: 'bob', telephone: '12345' })
 
-r = Restaurant.create({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: '40.186708,-8.416133', image:"http://www.uc.pt/sasuc/imagens/Copia_de_Polo_II_Informatica.jpg" })
+r = Restaurant.create!({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: '40.186708,-8.416133', image:"http://www.uc.pt/sasuc/imagens/Copia_de_Polo_II_Informatica.jpg" })
 
-m = Meal.create({name: 'Sandes de salsicha', price: 4.20})
+m = Meal.create!({name: 'Sandes de salsicha', price: 4.20})
 
-MenuItem.create({date: Date.today, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
+m2 = MenuItem.create!({date: Date.today+6.days, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
 
-m = Meal.create({name: 'Sandes de frango', price: 4.20})
+m = Meal.create!({name: 'Sandes de frango', price: 4.20})
 
-MenuItem.create({date: Date.today, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
+m3 = MenuItem.create!({date: Date.today+5.days, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
+
+b.reservations.create!([ {menu_item_id: m2.id, time_slot: DateTime.parse("#{m2.date} #{Time.now}")},
+                         {menu_item_id: m3.id, time_slot: DateTime.parse("#{m3.date} #{Time.now}")}
+                    ])
 
 puts 'Seeded'
