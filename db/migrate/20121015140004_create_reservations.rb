@@ -3,7 +3,7 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.integer :user_id, :null => false
       t.integer :menu_item_id, :null => false
-      t.datetime :time_slot
+      t.string :time_slot
 
       t.timestamps
     end

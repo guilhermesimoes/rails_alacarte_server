@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20121015183529) do
   create_table "reservations", :force => true do |t|
     t.integer  "user_id",      :null => false
     t.integer  "menu_item_id", :null => false
-    t.datetime "time_slot"
+    t.string   "time_slot"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -48,13 +48,15 @@ ActiveRecord::Schema.define(:version => 20121015183529) do
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "restaurants", :force => true do |t|
-    t.string   "name",        :null => false
+    t.string   "name",                                                                 :null => false
     t.string   "address"
     t.string   "coordinates"
     t.string   "image"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "max_seats"
+    t.string   "opening_hours", :default => "1200 1230 1300 1330 1400 1930 2000 2030", :null => false
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
   end
 
   add_index "restaurants", ["name"], :name => "index_restaurants_on_name"

@@ -61,7 +61,7 @@ Restaurant.create!([ {   name: 'Restaurante Luzio Vaz',
                     },
                     {    name: 'Grill D. Dinis',
                          coordinates: '40.209075,-8.421978',
-                         image: "http://www.uc.pt/sasuc/ServicosApoioEstudantes/Alimentacao/2012/Grill_DDinis.jpg"
+                         image: "http://www.uc.pt/sasuc/ServicosApoioEstudantes/Alimentacao/2012/Grill_DDinis.JPG"
                     },
                     {    name: 'Cantina do Pólo II',
                          coordinates: '40.1863,-8.414211',
@@ -84,8 +84,8 @@ m = Meal.create!({name: 'Sandes de frango', price: 4.20})
 
 m3 = MenuItem.create!({date: Date.today+5.days, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
 
-b.reservations.create!([ {menu_item_id: m2.id, time_slot: DateTime.parse("#{m2.date} #{Time.now}")},
-                         {menu_item_id: m3.id, time_slot: DateTime.parse("#{m3.date} #{Time.now}")}
+b.reservations.create!([ {menu_item_id: m2.id, time_slot: "1300"},
+                         {menu_item_id: m3.id, time_slot: "1400"}
                     ])
 
 puts 'Seeded'

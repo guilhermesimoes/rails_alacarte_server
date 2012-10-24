@@ -6,6 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :coordinates
       t.string :image
       t.text :description
+      t.integer :max_seats
+      t.string :opening_hours, :null => false, :default => "1200 1230 1300 1330 1400 1930 2000 2030"
 
       t.timestamps
     end
