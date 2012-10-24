@@ -6,5 +6,5 @@ glue :meal do
 end
 
 glue :restaurant do
-  attributes :name => :restaurant_name
+  attributes :name => :restaurant_name, :coordinates
 end
