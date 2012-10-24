@@ -7,4 +7,5 @@ end
 
 glue :restaurant do
   attributes :name => :restaurant_name
+  attributes :coordinates, :address
 end
