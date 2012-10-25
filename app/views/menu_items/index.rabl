@@ -6,7 +6,8 @@ glue :meal do
 end
 
 if @include_restaurants
-  child :restaurant do
-    attributes :name, :coordinates, :address
+  glue :restaurant do
+    attributes :name => :restaurant_name
+    attributes :coordinates, :address
   end
 end
