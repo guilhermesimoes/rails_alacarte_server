@@ -84,6 +84,5 @@ class RestaurantsController < ApplicationController
   def availability
     restaurant = Restaurant.find(params[:id])
     @availability = restaurant.availability(params[:date])
-    puts Date.today
   end
 end

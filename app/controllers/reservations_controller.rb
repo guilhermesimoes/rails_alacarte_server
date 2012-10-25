@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   respond_to :html, :json, :xml
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!, except: [:confirmation]
 
   # GET /reservations
   # GET /reservations.json
@@ -70,5 +70,12 @@ class ReservationsController < ApplicationController
       format.html { redirect_to reservations_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /reservations/:id/confirmation
+  # GET /reservations/:id/confirmation.json
+  def confirmation
+    @reservation = Reservation.find(params[:id])
+    render action: "show"
   end
 end
