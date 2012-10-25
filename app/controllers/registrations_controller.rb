@@ -33,7 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
         if resource.update_without_password(params[resource_name])
           set_flash_message :notice, :updated
           sign_in resource_name, resource, bypass: true
-          respond_with resource, location: user_path(resource)
+          respond_with resource, location: user_path(resource.authentication_token)
         else
           clean_up_passwords(resource)
           respond_with resource
