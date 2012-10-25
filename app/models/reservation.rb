@@ -14,7 +14,7 @@ class Reservation < ActiveRecord::Base
   # Send an SMS informing the user his reservation was successful
   def send_sms
     # user = self.user
-    # UserMailer.reservation_sms(user).deliver if user.telephone?
+    # UserMailer.reservation_sms(user,this).deliver if user.telephone?
   end
 
   def validate_purchase
