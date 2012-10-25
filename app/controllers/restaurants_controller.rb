@@ -76,4 +76,12 @@ class RestaurantsController < ApplicationController
     @menu_items = Restaurant.find(params[:id]).menu_items.of_the_next_seven_days
     render "menu_items/index"
   end
+
+  # GET /restaurants/:id/availability
+  # GET /restaurants/:id/availability.json
+  def availability
+    restaurant = Restaurant.find(params[:id])
+    @availability = restaurant.availability(params[:date])
+    puts Date.today
+  end
 end

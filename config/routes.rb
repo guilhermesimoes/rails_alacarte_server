@@ -7,6 +7,7 @@ RailsAlacarteServer::Application.routes.draw do
   resources :menu_items
   resources :restaurants do
     get 'menu_items', on: :member
+    get 'availability', on: :member
   end
 
   get '/change_password' => 'passwords#edit', :as => :edit_user_password
