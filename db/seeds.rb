@@ -91,7 +91,7 @@ Restaurant.create!([ {   name: 'Restaurante Luzio Vaz',
 
 z = User.create!({email: 'miguel.penetra@gmail.com', password: 'bob1234', password_confirmation: 'bob1234', name: 'Mantorras', telephone: '914423862', credits: 200 })
 
-b = User.create!({email: 'j.barbosa333@mail.com', password: 'password', password_confirmation: 'password', name: 'Chuck Norris', telephone: '916390012', credits: 200 })
+b = User.create!({email: 'j.barbosa333@gmail.com', password: 'password', password_confirmation: 'password', name: 'Chuck Norris', telephone: '916390012', credits: 200 })
 
 r = Restaurant.create!({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: '40.186708,-8.416133', image:"http://www.uc.pt/sasuc/imagens/Copia_de_Polo_II_Informatica.jpg" })
 
