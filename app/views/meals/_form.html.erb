@@ -18,17 +18,19 @@
 
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.number_field :price %>
+    <%= f.text_field :price %>
   </div>
-
-  <%= f.fields_for :menu_items do |builder| %>
-    <%= render 'menu_items', :f => builder %>
-  <% end %>
 
   <div class="field">
     <%= f.label :image %><br />
     <%= f.text_field :image %>
   </div>
+
+  <%= f.fields_for :menu_items do |builder| %>
+    <div style="padding-top: 30px;">
+      <%= render 'menu_items', :f => builder %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
