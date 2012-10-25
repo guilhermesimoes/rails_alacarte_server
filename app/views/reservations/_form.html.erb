@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :time_slot %><br />
-    <%= f.datetime_select :time_slot %>
+    <%= f.select(:time_slot, @restaurants.first.opening_hours.split(' ')) %>
   </div>
   <div class="actions">
     <%= f.submit %>

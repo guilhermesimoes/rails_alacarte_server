@@ -14,7 +14,7 @@
 
 <% @menu_items.each do |menu_item| %>
   <tr>
-    <td><%= menu_item.restaurant.name %></td>
+    <td><%= @include_restaurants ? menu_item.restaurant.name : @restaurant.name %></td>
     <td><%= menu_item.meal.name %></td>
     <td><%= menu_item.date %></td>
     <td><%= menu_item.max_reservations %></td>

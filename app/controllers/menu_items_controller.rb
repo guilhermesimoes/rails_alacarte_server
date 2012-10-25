@@ -5,6 +5,7 @@ class MenuItemsController < ApplicationController
   # GET /menu_items.json
   def index
     @menu_items = MenuItem.of_the_next_seven_days.includes(:restaurant)
+    @include_restaurants = true
     respond_with(@menu_items)
   end
 

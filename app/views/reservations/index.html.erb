@@ -2,7 +2,10 @@
 
 <table>
   <tr>
+    <th>Restaurant</th>
+    <th>Date</th>
     <th>Time slot</th>
+    <th>Meal</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +13,10 @@
 
 <% @reservations.each do |reservation| %>
   <tr>
+    <td><%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant) %></td>
+    <td><%= link_to reservation.menu_item.date, menu_item_path(reservation.menu_item) %></td>
     <td><%= reservation.time_slot %></td>
+    <td><%= link_to reservation.meal.name, meal_path(reservation.meal) %></td>
     <td><%= link_to 'Show', reservation %></td>
     <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
     <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

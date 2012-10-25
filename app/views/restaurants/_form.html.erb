@@ -27,6 +27,18 @@
     <%= f.label :image %><br />
     <%= f.text_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :max_seats %><br />
+    <%= f.number_field :max_seats %>
+  </div>
+  <div class="field">
+    <%= f.label :opening_hours %><br />
+    <%= f.text_field :opening_hours, placeholder: '8h 8h30 9h' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

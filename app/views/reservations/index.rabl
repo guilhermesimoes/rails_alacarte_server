@@ -1,6 +1,3 @@
-collection @reservations
-attributes :id, :user_id, :time_slot
+extends "reservations/show"
 
-glue :meal do
-  attributes :name, :price, :image
-end
+collection @reservations

@@ -1,11 +1,11 @@
 class ReservationsController < ApplicationController
   respond_to :html, :json, :xml
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = current_user.reservations
+    @reservations = current_user.reservations.joins(:menu_item).order('menu_items.date DESC, time_slot DESC')
     respond_with(@reservations)
   end
 
@@ -20,6 +20,7 @@ class ReservationsController < ApplicationController
   def new
     @reservation = current_user.reservations.new
     @menu_items = MenuItem.of_the_next_seven_days.includes(:restaurant)
+    @restaurants = @menu_items.collect { |menu_item| menu_item.restaurant }
   end
 
   # GET /reservations/1/edit

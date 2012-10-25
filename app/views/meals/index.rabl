@@ -1,2 +1,3 @@
+extends "meals/show"
+
 collection @meals
-attributes :id, :name, :price, :image

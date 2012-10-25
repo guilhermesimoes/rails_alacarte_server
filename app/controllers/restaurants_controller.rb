@@ -73,7 +73,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/:id/menu_items
   # GET /restaurants/:id/menu_items.json
   def menu_items
-    @menu_items = Restaurant.find(params[:id]).menu_items.of_the_next_seven_days
+    @restaurant = Restaurant.find(params[:id])
+    @menu_items = @restaurant.menu_items.of_the_next_seven_days
+    @include_restaurants = false
     render "menu_items/index"
   end
 

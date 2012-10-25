@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Restaurant:</b>
+  <%= link_to @reservation.restaurant.name, restaurant_path(@reservation.restaurant) %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= link_to @reservation.menu_item.date, menu_item_path(@reservation.menu_item) %>
+</p>
+
+<p>
   <b>Time slot:</b>
   <%= @reservation.time_slot %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= link_to @reservation.meal.name, menu_item_path(@reservation.menu_item_id) %>
+  <b>Meal:</b>
+  <%= link_to @reservation.meal.name, meal_path(@reservation.meal) %>
 </p>
 
 <p>
