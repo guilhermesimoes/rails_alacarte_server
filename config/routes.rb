@@ -15,6 +15,8 @@ RailsAlacarteServer::Application.routes.draw do
   get 'change_password' => 'passwords#edit', :as => :edit_user_password
   put 'update_password' => 'passwords#update', :as => :update_user_password
 
+  match 'send_local_data' => 'pages#send_local_data'
+
   ['home', 'sms_test'].each do |p|
     get "/#{p}", :controller => 'pages', :action => p
   end
