@@ -12,10 +12,15 @@ class PagesController < ApplicationController
 
   # POST /send_local_data.json?auth_token=secret
    def send_local_data
-    # Convert params[:data] or whatever json object to a data variable
-
     UserMailer.local_data(current_user, params[:data]).deliver
-    render nothing: true
+    respond_to do |format|
+      format.html {
+        redirect_to root_path, notice: "An email was sent to #{current_user.name}"
+      }
+      format.json {
+        head :no_content
+      }
+    end
   end
 end
 
