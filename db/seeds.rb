@@ -95,11 +95,11 @@ b = User.create!({id: '1', email: 'bob@mail.com', password: 'bob1234', password_
 
 r = Restaurant.create!({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: '40.186708,-8.416133', image:"http://www.uc.pt/sasuc/imagens/Copia_de_Polo_II_Informatica.jpg" })
 
-m = Meal.create!({name: 'Sandes de salsicha', price: 4.20})
+m = Meal.create!({name: 'Sandes de salsicha', price: 4.20, image: 'sausage_sandwich.jpg'})
 
 m2 = MenuItem.create!({date: Date.today+6.days, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
 
-m = Meal.create!({name: 'Sandes de frango', price: 4.20})
+m = Meal.create!({name: 'Sandes de frango', price: 4.20, image: 'chicken_sandwich.jpg'})
 
 m3 = MenuItem.create!({date: Date.today+5.days, max_reservations: 100, restaurant_id: r.id, meal_id: m.id})
 
