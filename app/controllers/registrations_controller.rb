@@ -13,9 +13,8 @@ class RegistrationsController < Devise::RegistrationsController
         puts params
         build_resource
         if resource.save
-          response = {}
-          response[:auth_token] = resource.authentication_token
-          render json: response.to_json, success: true, status: :created
+          @user = resource
+          render "users/session", success: true, status: :created
         else
           render json: resource.errors, status: :unprocessable_entity
         end
