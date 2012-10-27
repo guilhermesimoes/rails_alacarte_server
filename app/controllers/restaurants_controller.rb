@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurant.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order('name ASC')
     respond_with(@restaurants)
   end
 
