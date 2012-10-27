@@ -1,13 +1,13 @@
 class SessionsController < Devise::SessionsController
 
   def create
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts params
     respond_to do |format|
       format.html {
         super
       }
       format.json {
-        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-        puts params
         build_resource
         resource = User.find_for_database_authentication(email: params[:user][:email])
         return invalid_login_attempt unless resource
@@ -24,16 +24,15 @@ class SessionsController < Devise::SessionsController
   end
 
   def destroy
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts params
+    current_user.reset_authentication_token!
     respond_to do |format|
       format.html {
         super
       }
       format.json {
-        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-        puts params
         # signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-        @user = User.find_by_authentication_token(params[:user][:auth_token])
-        @user.reset_authentication_token!
         render :json => { :message => 'Session deleted.' }, success: true, status: 204
       }
     end
