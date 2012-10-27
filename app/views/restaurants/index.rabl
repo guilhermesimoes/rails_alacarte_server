@@ -1,2 +1,2 @@
 collection @restaurants
-attributes :id, :name, :image, :coordinates, :description, :address, :max_seats, :opening_hours
+attributes :id, :name, :image, :description, :address, :coordinates, :max_seats, :opening_hours
