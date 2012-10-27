@@ -14,7 +14,7 @@ class PasswordsController < ApplicationController
         @user = User.find(current_user)
         if @user.update_with_password(params[:user])
           sign_in @user, bypass: true
-          redirect_to user_path(@user), notice: 'Password was successfully updated.'
+          redirect_to user_path(@user.authentication_token), notice: 'Password was successfully updated.'
         else
           render action: "edit"
         end
@@ -22,7 +22,7 @@ class PasswordsController < ApplicationController
       format.json {
         @user = User.find_by_authentication_token(params[:auth_token])
         if @user.update_with_password(params[:user])
-          sign_in @user, bypass: true
+          # sign_in @user, bypass: true
           head :no_content
         else
           render json: @user.errors, status: :unprocessable_entity
