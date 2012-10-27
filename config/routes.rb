@@ -6,6 +6,7 @@ RailsAlacarteServer::Application.routes.draw do
   resources :menu_items
   resources :reservations do
     get 'confirmation', on: :member
+    post 'pay_with_credits', on: :collection
   end
   resources :restaurants do
     get 'menu_items', on: :member
@@ -16,6 +17,7 @@ RailsAlacarteServer::Application.routes.draw do
   put 'update_password' => 'passwords#update', :as => :update_user_password
 
   match 'send_local_data' => 'pages#send_local_data'
+  match 'pay_with_credits' => 'reservations#pay_with_credits'
 
   ['home', 'sms_test'].each do |p|
     get "/#{p}", :controller => 'pages', :action => p

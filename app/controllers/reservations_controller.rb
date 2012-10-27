@@ -84,4 +84,27 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     render action: "show"
   end
+  
+  # POST /reservations
+  # POST /reservations.json
+  def pay_with_credits
+    @reservation = current_user.reservations.new(params[:reservation])
+
+    respond_to do |format|
+      if @reservation.save
+        current_user.update_attributes(credits: current_user.credits-@reservation.meal.price)
+        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.json { render "reservations/show", success: true, status: :created, location: @reservation }
+      else
+        format.html {
+          @menu_items = MenuItem.of_the_next_seven_days.includes(:restaurant)
+          @restaurants = @menu_items.collect { |menu_item| menu_item.restaurant }
+          render action: "new"
+        }
+        format.json {
+          render json: @reservation.errors, status: :unprocessable_entity
+        }
+      end
+    end
+  end
 end

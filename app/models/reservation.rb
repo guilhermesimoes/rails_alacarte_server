@@ -15,7 +15,6 @@ class Reservation < ActiveRecord::Base
   after_create :pay_and_send_sms
 
   def pay_and_send_sms
-    user.update_attributes(credits: user.credits-meal.price)
     #UserMailer.reservation_sms(user,self).deliver if user.telephone?
   end
 
