@@ -36,10 +36,16 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render json: @reservation, status: :created, location: @reservation }
+        format.json { render "reservations/show", success: true, status: :created, location: @reservation }
       else
-        format.html { render action: "new" }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.html {
+          @menu_items = MenuItem.of_the_next_seven_days.includes(:restaurant)
+          @restaurants = @menu_items.collect { |menu_item| menu_item.restaurant }
+          render action: "new"
+        }
+        format.json {
+          render json: @reservation.errors, status: :unprocessable_entity
+        }
       end
     end
   end

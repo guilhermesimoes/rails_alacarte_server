@@ -1,5 +1,5 @@
 object @reservation
-attributes :id, :user_id, :time_slot
+attributes :id, :time_slot
 
 glue :menu_item do
   attributes :date
@@ -11,4 +11,8 @@ end
 
 glue :restaurant do
   attributes :name => :restaurant_name
+end
+
+child :user do
+  attributes :id, :name, :credits
 end

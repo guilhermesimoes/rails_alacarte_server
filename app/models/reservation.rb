@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :menu_item, counter_cache: :cur_reservations
@@ -8,16 +10,24 @@ class Reservation < ActiveRecord::Base
 
   attr_accessible :user_id, :menu_item_id, :time_slot
 
-  # before_create :validate_purchase
-  after_create :send_sms
+  validate :purchase, on: :create
 
-  # Send an SMS informing the user his reservation was successful
-  def send_sms
-    #user = self.user
+  after_create :pay_and_send_sms
+
+  def pay_and_send_sms
+    user.update_attributes(credits: user.credits-meal.price)
     #UserMailer.reservation_sms(user,self).deliver if user.telephone?
   end
 
-  def validate_purchase
-    # validations: number of seats, enough credits, etc...
+  def purchase
+    if menu_item.cur_reservations == menu_item.max_reservations
+      errors[:base] << "Não há comida que chegue para ti"
+    end
+    if meal.price > user.credits
+      errors[:base] << "Não tens dinheiro que chegue"
+    end
+    if restaurant.availability(menu_item.date)[time_slot] == restaurant.max_seats
+      errors[:base] << "Não há lugar para ti a esta hora"
+    end
   end
 end
