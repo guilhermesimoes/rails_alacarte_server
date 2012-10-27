@@ -9,6 +9,8 @@ class PasswordsController < ApplicationController
   # PUT /update_password
   # PUT /update_password.json?auth_token=secret
   def update
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts params
     respond_to do |format|
       format.html {
         @user = User.find(current_user)

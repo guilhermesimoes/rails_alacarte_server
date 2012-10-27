@@ -4,13 +4,13 @@ class RegistrationsController < Devise::RegistrationsController
   # POST /users
   # POST /users.json
   def create
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts params
     respond_to do |format|
       format.html {
         super
       }
       format.json {
-        puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-        puts params
         build_resource
         if resource.save
           @user = resource
@@ -26,6 +26,8 @@ class RegistrationsController < Devise::RegistrationsController
   # PUT /users
   # PUT /users.json?auth_token=secret
   def update
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts params
     respond_to do |format|
       format.html {
         self.resource = resource_class.to_adapter.get!(send(:"current_user").to_key)
