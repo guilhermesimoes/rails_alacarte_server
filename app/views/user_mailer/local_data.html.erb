@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-  	<div>
-	    <h1>Locally stored reservation data</h1>
-	    <p> Dear <%=@user.name%>, your resquested reservations: </p>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<div>
+			<h1>Locally stored reservation data</h1>
+			<p>Dear <%= @user.name %>, your resquested reservations:</p>
 
-	    <%	@data.each do |index,reservation| %>
-		    <div>
-				<h3> Reservation #<%=reservation["id"]%></h3> 
+			<% @data.each do |index, reservation| %>
+				<div>
+					<h3> Reservation #<%= reservation["id"] %></h3>
 
-				<div><strong> User ID: </strong><%=reservation["user_id"]%></div>
-				<div><strong> Time slot: </strong><%=reservation["time_slot"]%></div>
-				<div><strong> Date: </strong><%=reservation["date"]%></div>
-				<div><strong> Restaurant Name: </strong><%=reservation["restaurant_name"]%></div>
-				<div><strong> Menu: </strong><%=reservation["name"]%></div>
-				<div><strong> Price Paid: </strong><%=reservation["price"]%></div>
-				<br/>
-		    </div> 
-	    <%end%>
+					<div><strong> User ID: </strong><%= reservation["user_id"] %></div>
+					<div><strong> Time slot: </strong><%= reservation["time_slot"] %></div>
+					<div><strong> Date: </strong><%= reservation["date"] %></div>
+					<div><strong> Restaurant Name: </strong><%= reservation["restaurant_name"] %></div>
+					<div><strong> Menu: </strong><%= reservation["name"] %></div>
+					<div><strong> Price Paid: </strong><%= reservation["price"] %></div>
+				</div>
+			<% end %>
 
-	    <span> This email can be used as a confirmation of your reservation. </span>
+			<span>This email can be used as a confirmation of your reservation.</span>
 	</div>
-  </body>
+	</body>
 </html>

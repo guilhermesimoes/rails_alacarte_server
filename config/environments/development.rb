@@ -46,5 +46,5 @@ RailsAlacarteServer::Application.configure do
     :user_name => 'noreply.alacarte@gmail.com',
     :password => ENV['EMAIL_PASSWORD']
   }
-  #config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = false
 end
