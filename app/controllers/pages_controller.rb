@@ -22,8 +22,6 @@ class PagesController < ApplicationController
 
   # POST /send_local_reservation.json?auth_token=secret
   def send_local_reservation
-    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    puts params
     UserMailer.local_reservation(current_user, params[:reservation]).deliver
     respond_to do |format|
       format.json {

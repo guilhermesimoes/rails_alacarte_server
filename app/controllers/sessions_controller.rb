@@ -1,8 +1,6 @@
 class SessionsController < Devise::SessionsController
 
   def create
-    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    puts params
     respond_to do |format|
       format.html {
         super
@@ -24,8 +22,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def destroy
-    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    puts params
     current_user.reset_authentication_token!
     respond_to do |format|
       format.html {
