@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<div>
+			<p><%= @user.name %>, aqui está a reserva pedida:</p>
+
+			<div>
+				<h3>Reserva #<%= @reserva["id"] %></h3>
+
+				<div><strong> ID do utilizador: </strong><%= @reserva["user_id"] %></div>
+				<div><strong> Time slot: </strong><%= @reserva["time_slot"] %></div>
+				<div><strong> Data: </strong><%= @reserva["date"] %></div>
+				<div><strong> Restaurante: </strong><%= @reserva["restaurant_name"] %></div>
+				<div><strong> Prato: </strong><%= @reserva["name"] %></div>
+				<div><strong> Preço: </strong><%= @reserva["price"] %></div>
+			</div>
+		</div>
+	</body>
+</html>

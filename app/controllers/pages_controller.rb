@@ -11,16 +11,22 @@ class PagesController < ApplicationController
   end
 
   # POST /send_local_data.json?auth_token=secret
-   def send_local_data
+  def send_local_data
     UserMailer.local_data(current_user, params[:data]).deliver
     respond_to do |format|
-      format.html {
-        redirect_to root_path, notice: "An email was sent to #{current_user.name}"
+      format.json {
+        head :no_content
       }
+    end
+  end
+
+  # POST /send_local_reservation.json?auth_token=secret
+  def send_local_reservation
+    UserMailer.local_reservation(current_user, params[:reservation]).deliver
+    respond_to do |format|
       format.json {
         head :no_content
       }
     end
   end
 end
-

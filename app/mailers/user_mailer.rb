@@ -8,8 +8,14 @@ class UserMailer < ActionMailer::Base
   end
 
   def local_data(user, data)
-    @data = data
     @user = user
+    @data = data
     mail(to: user.email, subject: "#{user.name}, Your SASUC Reservations!")
+  end
+
+  def local_reservation(user, reservation)
+    @user = user
+    @reservation = reservation
+    mail(to: user.email, subject: "#{user.name}, a tua reserva SASUC")
   end
 end

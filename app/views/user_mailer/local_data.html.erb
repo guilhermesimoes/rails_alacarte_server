@@ -10,7 +10,7 @@
 
 			<% @data.each do |index, reservation| %>
 				<div>
-					<h3> Reservation #<%= reservation["id"] %></h3>
+					<h3>Reservation #<%= reservation["id"] %></h3>
 
 					<div><strong> User ID: </strong><%= reservation["user_id"] %></div>
 					<div><strong> Time slot: </strong><%= reservation["time_slot"] %></div>
@@ -22,6 +22,6 @@
 			<% end %>
 
 			<span>This email can be used as a confirmation of your reservation.</span>
-	</div>
+		</div>
 	</body>
 </html>
