@@ -6,6 +6,7 @@ RailsAlacarteServer::Application.routes.draw do
   resources :menu_items
   resources :reservations do
     get 'confirmation', on: :member
+    post 'pay_with_credits', on: :collection
   end
   resources :restaurants do
     get 'menu_items', on: :member
