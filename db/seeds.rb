@@ -97,7 +97,7 @@ r = Restaurant.create!({name: 'Bar de Informática', address: 'R. Miguel Bombard
 
 Meal.create!({name: 'Feijoada', price: 5.00, image: 'feijoada.jpg'})
 
-Meal.create!({name: 'Bitoque', price: 6.00, image: 'picanha.jpg'})
+Meal.create!({name: 'Bitoque', price: 6.00, image: 'bitoque.jpg'})
 
 Meal.create!({name: 'Arroz de pato', price: 4.00, image: 'arrozdepato.jpg'})
 
