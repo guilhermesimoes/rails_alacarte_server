@@ -95,6 +95,12 @@ b = User.create!({email: 'j.barbosa333@gmail.com', password: 'password', passwor
 
 r = Restaurant.create!({name: 'Bar de Informática', address: 'R. Miguel Bombarda, 105, Coimbra, 3030, Portugal', coordinates: '40.186708,-8.416133', image:"http://www.uc.pt/sasuc/imagens/Copia_de_Polo_II_Informatica.jpg" })
 
+Meal.create!({name: 'Feijoada', price: 5.00, image: 'feijoada.jpg'})
+
+Meal.create!({name: 'Bitoque', price: 6.00, image: 'picanha.jpg'})
+
+Meal.create!({name: 'Arroz de pato', price: 4.00, image: 'arrozdepato.jpg'})
+
 m = Meal.create!({name: 'Sandes de salsicha', price: 4.20, image: 'sausage_sandwich.jpg'})
 
 m2 = MenuItem.create!({date: Date.today+6.days, max_reservations: 5, restaurant_id: r.id, meal_id: m.id})
