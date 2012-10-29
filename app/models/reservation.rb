@@ -12,10 +12,10 @@ class Reservation < ActiveRecord::Base
 
   validate :purchase, on: :create
 
-  after_create :pay_and_send_sms
+  after_create :send_sms
 
-  def pay_and_send_sms
-    #UserMailer.reservation_sms(user,self).deliver if user.telephone?
+  def send_sms
+    UserMailer.reservation_sms(user, self).deliver if user.telephone?
   end
 
   def purchase
